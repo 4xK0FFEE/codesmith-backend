@@ -11,8 +11,3 @@ async def list_templates() -> Response:
 @router.post("/add")
 async def add_template() -> Response:
     return Response("template add") # JSONResponse
-
-@router.post("/generate")
-async def generate_template() -> Response:
-    return Response("template generate") # JSONResponse
-

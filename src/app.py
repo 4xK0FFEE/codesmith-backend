@@ -4,7 +4,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from src.routers import router as Router
 from src.config import Config as config
 import src.database as database
-from src.routers import templates
 import os
 
 app = FastAPI()
@@ -12,9 +11,13 @@ app.include_router(Router)
 
 config.database = os.getenv("MONGO_URI")
 
-#@app.on_event("startup")
-#async def startup():
-#    await database.init_db()
+@app.on_event("startup")
+async def startup():
+    await database.init_db()
+
+@app.on_event("shutdown")
+def shutdown():
+    print("Stopping Server and Workers",flush=True)
 
 app.add_middleware(
     CORSMiddleware,
@@ -23,9 +26,3 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-app.include_router(templates.router)
-
-@app.get("/")
-async def hello() -> Response:
-    return Response('hello')

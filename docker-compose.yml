@@ -1,0 +1,22 @@
+services:
+  database:
+    image: mongo:latest
+    container_name: codesmith-database
+    hostname: mongo.codesmith 
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build:
+      context: ./ 
+    container_name: codesmith-backend
+    hostname: backend.codesmith 
+    depends_on:
+      - database
+    environment:
+      MONGO_URI: mongodb://mongo.codesmith:27017/codesmith
+    ports:
+      - 3000:3000
+
+volumes:
+  mongo_data:

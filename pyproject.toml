@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "codesmith-backend"
+version = "0.0.1"
+description = "A backend for codesmith in Python using FastAPI"
+authors = ["4xKOFFEE"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.110.0"
+uvicorn = {extras = ["standard"], version = "^0.27.1"}
+motor = "^3.3.2"  # Async MongoDB driver for MongoDB
+gunicorn = "^23.0.0"
+beanie = "^1.29.0"
+
+[tool.poetry.group.dev.dependencies]
+fastapi-cli = "^0.0.7"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+

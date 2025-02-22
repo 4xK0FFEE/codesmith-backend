@@ -1,15 +1,11 @@
-My project name is <project-name>, author is <author-name> and my audience reach is <scale>. The project plan is <project-plan>.
-
-Specifications<type> (type depends on the route we use)
- The project will have frontend with framework as <framework>. Language should be <language> and styling solution should be <styling-solutoin>. State management is <state-management>. Authentication setup is <authentication-setup>. Testing framework is <testing-framework>. Package manager is <package-manager>. Routing solution is <routing-solution>. UI Component Library is <ui-library>. From handling include <form-handling>. Analytics include <analytics-provider>. Seo setup is <seo-setup>. Internalization is <internalization>. Progressive Web App is <progressive-web-app>.
-
 General
 My project name is <projectName>, authored by <projectAuthor>, and aimed at <projectAudience>. The project plan is <projectPlan>.
 
 Frontend
 My project name is <projectName>, and the frontend is built using <framework>. The primary language is <language>, with <styling> as the styling solution. State management will be handled using <stateManagement>, and form handling is done via <formHandling>. Authentication setup is <authentication>. The project will use <routing> for routing, <uiLibrary> for UI components, and <packageManager> as the package manager. Testing will be handled using <testing>. Analytics provider is <analytics>, SEO setup will <be/not be> there, and i18n (Internationalization) setup will <be/not be>  there. PWA configuration will <be/not be> there.
 
-Backend My backend project is named <projectName>, built using <framework> with <language> as the primary language. API specifications follow <apiSpec>, and authentication is handled via <authentication>. The database used is <database>, with <orm> as the ORM. Caching mechanism is <caching>. Containerization is <docker>, and messaging service is <messaging>. Monitoring setup is <monitoring>. Testing will be done using <testing>.
+Backend
+My backend project is named <projectName>, built using <framework> with <language> as the primary language. API specifications follow <apiSpec>, and authentication is handled via <authentication>. The database used is <database>, with <orm> as the ORM. Caching mechanism is <caching>. Containerization is <docker>, and messaging service is <messaging>. Monitoring setup is <monitoring>. Testing will be done using <testing>.
 
 Fullstack
 My fullstack project is <projectName>, using <frontendFramework> for the frontend and <backendFramework> for the backend. The database is <database>, managed using <orm>. Authentication is set up as <authentication>.

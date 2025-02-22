@@ -1,0 +1,94 @@
+My project name is <project-name>, author is <author-name> and my audience reach is <scale>. The project plan is <project-plan>.
+
+Specifications<type> (type depends on the route we use)
+ The project will have frontend with framework as <framework>. Language should be <language> and styling solution should be <styling-solutoin>. State management is <state-management>. Authentication setup is <authentication-setup>. Testing framework is <testing-framework>. Package manager is <package-manager>. Routing solution is <routing-solution>. UI Component Library is <ui-library>. From handling include <form-handling>. Analytics include <analytics-provider>. Seo setup is <seo-setup>. Internalization is <internalization>. Progressive Web App is <progressive-web-app>.
+
+General
+My project name is <projectName>, authored by <projectAuthor>, and aimed at <projectAudience>. The project plan is <projectPlan>.
+
+Frontend
+My project name is <projectName>, and the frontend is built using <framework>. The primary language is <language>, with <styling> as the styling solution. State management will be handled using <stateManagement>, and form handling is done via <formHandling>. Authentication setup is <authentication>. The project will use <routing> for routing, <uiLibrary> for UI components, and <packageManager> as the package manager. Testing will be handled using <testing>. Analytics provider is <analytics>, SEO setup will <be/not be> there, and i18n (Internationalization) setup will <be/not be>  there. PWA configuration will <be/not be> there.
+
+Backend My backend project is named <projectName>, built using <framework> with <language> as the primary language. API specifications follow <apiSpec>, and authentication is handled via <authentication>. The database used is <database>, with <orm> as the ORM. Caching mechanism is <caching>. Containerization is <docker>, and messaging service is <messaging>. Monitoring setup is <monitoring>. Testing will be done using <testing>.
+
+Fullstack
+My fullstack project is <projectName>, using <frontendFramework> for the frontend and <backendFramework> for the backend. The database is <database>, managed using <orm>. Authentication is set up as <authentication>.
+The deployment strategy includes <deployment>.
+
+CLI
+The CLI project <projectName> is developed using <language>. It will include <argumentParser> for argument parsing and <logging> for logging. The CLI <have <solution> as/not have> an interactive mode.
+
+Mobile
+My mobile project is <projectName>, using <framework> as the framework. State management is handled by <stateManagement>, and authentication is set up as <authentication>. Navigation solution is <navigation>, and data storage is managed using <storage>.
+
+AI-ML
+My AI/ML project <projectName> focuses on <projectType>. It will be developed using <framework>, with <GPU support/no GPU support>. Data processing involves <dataProcessing>, and experiment tracking is <there/not there>. Model tracking is done via <modelTracking>, and visualization tools include <visualization>. Deployment strategy is <deployment>.
+
+Game Development
+My game development project <projectName> is a <dimension> game built using <engine>. The genre is <genre>, and physics engine is <physics>. Multiplayer support is <multiplayer>, <with/without> asset management. The game <includes/does not include> a save system.
+
+DevOps
+My DevOps project <projectName> uses <cloudProvider> as the cloud provider. CI/CD is managed through <cicd>, with <orchestration> for orchestration and <infrastructure> for infrastructure management. Containerization is handled by <containerization>, and monitoring is done using <monitoring>. Service discovery is <serviceDiscovery>, security setup is <security>. <Include/Do not include> compliance and policy as code setup . <Include/Do not include> backup and disaster recovery setup
+
+Generate a structured directory layout for this project in the form of a nested list named Structure.
+
+The output should be a list of tuples where each tuple contains, ensure it is a list:
+1. Level (integer) – Represents the depth of the file/folder in the hierarchy.
+2. Name (string) – The file or folder name.
+3. Type (string) – Either "file" or "folder".
+
+Then create boilerplate template code for ALL the files in the directories. Give the output in a dictionary format with the key being the ordered tuple structure you generated for the structure and the value being the boilerplate template code for each respective file as a string with \n for line breaks.
+
+Then give a list of scripts in a sequential order as a list of strings.
+
+And you have to include everything as a list of strings in Python, i.e.
+
+{"structure": list of tuples, "scripts": list of strings, "boilerplate": dictionary of ordered tuples and file content}
+
+Give only the output i want and no explanation. I need to directly integrate this in my backend. Give the enter keys in the code as \n.
+
+This is an example template. Follow the exact same pattern.
+
+{
+    "structure": [
+        (0, "Project Name", "folder"),
+        (1, "src", "folder"),
+        (2, "components", "folder"),
+        (2, "pages", "folder"),
+        (2, "App.tsx", "file"),
+        (2, "main.tsx", "file"),
+        (1, "public", "folder"),
+        (2, "manifest.json", "file"),
+        (1, "package.json", "file"),
+        (1, "tsconfig.json", "file"),
+        (1, "tailwind.config.ts", "file"),
+        (1, "postcss.config.ts", "file"),
+        (1, "vite.config.ts", "file"),
+        (1, "index.html", "file"),
+    ],
+    "boilerplate": {
+        (2, "App.tsx", "file"): "import { Button } from \"@/components/ui/button\";\n\nfunction App() {\n    return (\n        <div className=\"flex items-center justify-center h-screen\">\n            <Button>Click me</Button>\n        </div>\n    );\n}\n\nexport default App;",
+
+        (2, "main.tsx", "file"): "import React from \"react\";\nimport ReactDOM from \"react-dom/client\";\nimport App from \"./App\";\nimport \"./index.css\";\n\nReactDOM.createRoot(document.getElementById(\"root\") as HTMLElement).render(\n    <React.StrictMode>\n        <App />\n    </React.StrictMode>\n);",
+
+        (2, "manifest.json", "file"): "{\n    \"short_name\": \"App\",\n    \"name\": \"Project Name\",\n    \"icons\": [],\n    \"start_url\": \".\",\n    \"display\": \"standalone\",\n    \"theme_color\": \"#ffffff\",\n    \"background_color\": \"#ffffff\"\n}",
+
+        (1, "package.json", "file"): "{\n    \"name\": \"project-name\",\n    \"version\": \"0.1.0\",\n    \"private\": true,\n    \"dependencies\": {\n        \"react\": \"^18.0.0\",\n        \"react-dom\": \"^18.0.0\",\n        \"@shadcn/ui\": \"latest\"\n    },\n    \"devDependencies\": {\n        \"typescript\": \"^5.0.0\",\n        \"vite\": \"^4.0.0\",\n        \"tailwindcss\": \"latest\",\n        \"postcss\": \"latest\",\n        \"autoprefixer\": \"latest\"\n    }\n}",
+
+        (1, "tsconfig.json", "file"): "{\n    \"compilerOptions\": {\n        \"target\": \"esnext\",\n        \"module\": \"esnext\",\n        \"jsx\": \"react-jsx\",\n        \"strict\": true\n    }\n}",
+
+        (1, "tailwind.config.ts", "file"): "import type { Config } from 'tailwindcss';\n\nconst config: Config = {\n    content: [\"./index.html\", \"./src//*.{ts,tsx}\"],\n    theme: {\n        extend: {},\n    },\n    plugins: [],\n};\n\nexport default config;",
+
+        (1, "postcss.config.ts", "file"): "export default {\n    plugins: {\n        tailwindcss: {},\n        autoprefixer: {},\n    },\n};",
+
+        (1, "vite.config.ts", "file"): "import { defineConfig } from \"vite\";\nimport react from \"@vitejs/plugin-react\";\n\nexport default defineConfig({\n    plugins: [react()],\n});",
+
+        (1, "index.html", "file"): "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <link rel=\"manifest\" href=\"/manifest.json\" />\n    <title>Project Name</title>\n</head>\n<body>\n    <div id=\"root\"></div>\n    <script type=\"module\" src=\"/src/main.tsx\"></script>\n</body>\n</html>"
+    },
+    "scripts": [
+        "npm install",
+        "npm run dev",
+        "npm run build",
+        "npm run preview"
+    ]
+}

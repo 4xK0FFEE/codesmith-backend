@@ -26,65 +26,14 @@ My game development project <projectName> is a <dimension> game built using <eng
 DevOps
 My DevOps project <projectName> uses <cloudProvider> as the cloud provider. CI/CD is managed through <cicd>, with <orchestration> for orchestration and <infrastructure> for infrastructure management. Containerization is handled by <containerization>, and monitoring is done using <monitoring>. Service discovery is <serviceDiscovery>, security setup is <security>. <Include/Do not include> compliance and policy as code setup . <Include/Do not include> backup and disaster recovery setup
 
-Generate a structured directory layout for this project in the form of a nested list named Structure.
+Generate a structured directory layout for this project and the corresponding boilerplate code.
 
-The output should be a list of tuples where each tuple contains, ensure it is a list:
-1. Level (integer) – Represents the depth of the file/folder in the hierarchy.
-2. Name (string) – The file or folder name.
-3. Type (string) – Either "file" or "folder".
+The output should be in this exact format:
 
-Then create boilerplate template code for ALL the files in the directories. Give the output in a dictionary format with the key being the ordered tuple structure you generated for the structure and the value being the boilerplate template code for each respective file as a string with \n for line breaks.
+{ "structure": [ ("path/to/file", "type"), # type is either "file" or "folder" ], "boilerplate": { "path/to/file": "content of file with \n for newlines", }, "scripts": [ "script command 1", "script command 2", ] }
 
-Then give a list of scripts in a sequential order as a list of strings.
+Here's an example of what the output should look like:
 
-And you have to include everything as a list of strings in Python, i.e.
+{ "structure": [ ("src", "folder"), ("src/components", "folder"), ("src/pages", "folder"), ("src/App.tsx", "file"), ("src/main.tsx", "file"), ("public", "folder"), ("public/manifest.json", "file"), ("package.json", "file"), ("tsconfig.json", "file"), ("tailwind.config.ts", "file"), ("postcss.config.ts", "file"), ("vite.config.ts", "file"), ("index.html", "file") ], "boilerplate": { "src/App.tsx": "import { Button } from "@/components/ui/button";\n\nfunction App() {\n return (\n <div className="flex items-center justify-center h-screen">\n <Button>Click me</Button>\n </div>\n );\n}\n\nexport default App;", "src/main.tsx": "import React from "react";\nimport ReactDOM from "react-dom/client";\nimport App from "./App";\nimport "./index.css";\n\nReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(\n <React.StrictMode>\n <App />\n </React.StrictMode>\n);", "public/manifest.json": "{\n "short_name": "App",\n "name": "Project Name",\n "icons": [],\n "start_url": ".",\n "display": "standalone",\n "theme_color": "#ffffff",\n "background_color": "#ffffff"\n}", "package.json": "{\n "name": "project-name",\n "version": "0.1.0",\n "private": true,\n "dependencies": {\n "react": "^18.0.0",\n "react-dom": "^18.0.0",\n "@shadcn/ui": "latest"\n },\n "devDependencies": {\n "typescript": "^5.0.0",\n "vite": "^4.0.0",\n "tailwindcss": "latest",\n "postcss": "latest",\n "autoprefixer": "latest"\n }\n}", "tsconfig.json": "{\n "compilerOptions": {\n "target": "esnext",\n "module": "esnext",\n "jsx": "react-jsx",\n "strict": true\n }\n}", "tailwind.config.ts": "import type { Config } from 'tailwindcss';\n\nconst config: Config = {\n content: ["./index.html", "./src/**/*.{ts,tsx}"],\n theme: {\n extend: {},\n },\n plugins: [],\n};\n\nexport default config;", "postcss.config.ts": "export default {\n plugins: {\n tailwindcss: {},\n autoprefixer: {},\n },\n};", "vite.config.ts": "import { defineConfig } from "vite";\nimport react from "@vitejs/plugin-react";\n\nexport default defineConfig({\n plugins: [react()],\n});", "index.html": "<!DOCTYPE html>\n<html lang="en">\n<head>\n <meta charset="UTF-8" />\n <meta name="viewport" content="width=device-width, initial-scale=1.0" />\n <link rel="manifest" href="/manifest.json" />\n <title>Project Name</title>\n</head>\n<body>\n <div id="root"></div>\n <script type="module" src="/src/main.tsx"></script>\n</body>\n</html>" }, "scripts": [ "npm install", "npm run dev", "npm run build", "npm run preview" ] }
 
-{"structure": list of tuples, "scripts": list of strings, "boilerplate": dictionary of ordered tuples and file content}
-
-Give only the output i want and no explanation. I need to directly integrate this in my backend. Give the enter keys in the code as \n.
-
-This is an example template. Follow the exact same pattern.
-
-{
-    "structure": [
-        (0, "Project Name", "folder"),
-        (1, "src", "folder"),
-        (2, "components", "folder"),
-        (2, "pages", "folder"),
-        (2, "App.tsx", "file"),
-        (2, "main.tsx", "file"),
-        (1, "public", "folder"),
-        (2, "manifest.json", "file"),
-        (1, "package.json", "file"),
-        (1, "tsconfig.json", "file"),
-        (1, "tailwind.config.ts", "file"),
-        (1, "postcss.config.ts", "file"),
-        (1, "vite.config.ts", "file"),
-        (1, "index.html", "file"),
-    ],
-    "boilerplate": {
-        (2, "App.tsx", "file"): "import { Button } from \"@/components/ui/button\";\n\nfunction App() {\n    return (\n        <div className=\"flex items-center justify-center h-screen\">\n            <Button>Click me</Button>\n        </div>\n    );\n}\n\nexport default App;",
-
-        (2, "main.tsx", "file"): "import React from \"react\";\nimport ReactDOM from \"react-dom/client\";\nimport App from \"./App\";\nimport \"./index.css\";\n\nReactDOM.createRoot(document.getElementById(\"root\") as HTMLElement).render(\n    <React.StrictMode>\n        <App />\n    </React.StrictMode>\n);",
-
-        (2, "manifest.json", "file"): "{\n    \"short_name\": \"App\",\n    \"name\": \"Project Name\",\n    \"icons\": [],\n    \"start_url\": \".\",\n    \"display\": \"standalone\",\n    \"theme_color\": \"#ffffff\",\n    \"background_color\": \"#ffffff\"\n}",
-
-        (1, "package.json", "file"): "{\n    \"name\": \"project-name\",\n    \"version\": \"0.1.0\",\n    \"private\": true,\n    \"dependencies\": {\n        \"react\": \"^18.0.0\",\n        \"react-dom\": \"^18.0.0\",\n        \"@shadcn/ui\": \"latest\"\n    },\n    \"devDependencies\": {\n        \"typescript\": \"^5.0.0\",\n        \"vite\": \"^4.0.0\",\n        \"tailwindcss\": \"latest\",\n        \"postcss\": \"latest\",\n        \"autoprefixer\": \"latest\"\n    }\n}",
-
-        (1, "tsconfig.json", "file"): "{\n    \"compilerOptions\": {\n        \"target\": \"esnext\",\n        \"module\": \"esnext\",\n        \"jsx\": \"react-jsx\",\n        \"strict\": true\n    }\n}",
-
-        (1, "tailwind.config.ts", "file"): "import type { Config } from 'tailwindcss';\n\nconst config: Config = {\n    content: [\"./index.html\", \"./src//*.{ts,tsx}\"],\n    theme: {\n        extend: {},\n    },\n    plugins: [],\n};\n\nexport default config;",
-
-        (1, "postcss.config.ts", "file"): "export default {\n    plugins: {\n        tailwindcss: {},\n        autoprefixer: {},\n    },\n};",
-
-        (1, "vite.config.ts", "file"): "import { defineConfig } from \"vite\";\nimport react from \"@vitejs/plugin-react\";\n\nexport default defineConfig({\n    plugins: [react()],\n});",
-
-        (1, "index.html", "file"): "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <link rel=\"manifest\" href=\"/manifest.json\" />\n    <title>Project Name</title>\n</head>\n<body>\n    <div id=\"root\"></div>\n    <script type=\"module\" src=\"/src/main.tsx\"></script>\n</body>\n</html>"
-    },
-    "scripts": [
-        "npm install",
-        "npm run dev",
-        "npm run build",
-        "npm run preview"
-    ]
-}
+Give ONLY the output in the exact format shown above with your project structure, boilerplate code, and scripts.

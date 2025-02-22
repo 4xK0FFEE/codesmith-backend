@@ -1,12 +1,33 @@
-from beanie import Document
-from bson import ObjectId
-from typing import List
+from enum import Enum
+from pydantic import BaseModel
+from typing import Optional, Set
 
-class Template(Document):
+class ProjectType(str, Enum):
+    FRONTEND = "frontend"
+    BACKEND = "backend"
+    FULLSTACK = "fullstack"
+    CLI = "cli"
+    MOBILE = "mobile"
+    AI_ML = "ai-ml"
+    GAME_DEV = "game-dev"
+    DEVOPS = "devops"
+
+class TemplateBase(BaseModel):
     name: str
-    filepath: str
-    type: List[str] # FOr now .. later we need to add literal
-    stack: List[str]
+    description: str
+    project_type: ProjectType
+    tags: Set[str]  # Using Set to ensure unique tags
 
-    class Settings:
-        collection = "templates"
+class TemplateCreate(TemplateBase):
+    download_url: str
+
+class Template(TemplateBase):
+    id: int
+    download_url: str
+
+class TemplateList(BaseModel):
+    id: int
+    name: str
+    description: str
+    project_type: ProjectType
+    tags: Set[str]

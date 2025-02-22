@@ -33,3 +33,5 @@ async def generator_game():
 @router.post("/devops", tags = ["Generator"])
 async def generator_devops():
     return Response("devops")
+
+__all__ = [ "router" ]

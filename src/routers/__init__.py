@@ -12,3 +12,5 @@ async def health_check() -> Response:
 router.include_router(TemplateRouter)
 router.include_router(FileShareRouter)
 router.include_router(GeneratorRouter)
+
+__all__ = [ "router" ]

@@ -8,3 +8,5 @@ async def generator_general():
     return Response("General Router")
 
 router.include_router(SpecificRouter)
+
+__all__ = [ "router" ]

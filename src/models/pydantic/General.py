@@ -3,7 +3,6 @@ from src.models import ProjectType
 from typing import List
 
 class General(BaseModel):
-    id: str
     projectName: str
     projectAuthor: str
     projectAudience: str

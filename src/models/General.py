@@ -1,7 +1,7 @@
-from beanie import Document
+from beanie import Document,PydanticObjectId
 from pydantic import BaseModel
 from enum import Enum
-from typing import List
+from typing import List,Optional
 from bson import ObjectId
 
 class ProjectType(str, Enum):
@@ -16,7 +16,7 @@ class ProjectType(str, Enum):
     General = "general"
 
 class General(Document):
-    id: str
+    _id: Optional[PydanticObjectId] = None 
     projectName: str
     projectAuthor: str
     projectAudience: str

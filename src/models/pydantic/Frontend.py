@@ -1,6 +1,9 @@
 from src.models.pydantic import General
+from src.models import ProjectType
+from pydantic import Field
 
 class Frontend(General):
+    projectType: ProjectType = Field(default=ProjectType.Frontend)
     analytics: str
     authentication: bool
     formHandling: str

@@ -7,6 +7,7 @@ from pathlib import Path
 import src.models.pydantic as pydantic_models
 from src.models import ProjectType, General
 from pydantic import BaseModel
+import requests
 
 def get_next_zip_number(directory: str = "/files") -> str:
     zip_files = [f for f in os.listdir(directory) if f.endswith(".zip")]
@@ -105,6 +106,8 @@ class GeneratorHandler:
             1. Level (integer) - Represents the depth of the file/folder in the hierarchy.
             2. Name (string) - The file or folder name.
             3. Type (string) - Either "file" or "folder".
+            4. Name for db(string) - this is a string which is a title for a general use of this project so that other people can use it 
+            5. Tags(string) - what all tags the project comes under. Like FullStack,Frontend,NextJS,etc.
 
             Then create boilerplate template code for ALL the files in the directories. Give the output in a dictionary format with the key being the ordered tuple structure you generated for the structure and the value being the boilerplate template code for each respective file as a string with \\n for line breaks.
 
@@ -164,10 +167,10 @@ class GeneratorHandler:
                     "Frontend",
                     "Backend"
                 ],
-                "name": "idktesting"
+                "name": "Name for db"
             }}'''
-
-        return fake_data
+        # Intergation AI
+        return ai_response
 
     @staticmethod
     async def _parse_string(input: str) -> Dict:

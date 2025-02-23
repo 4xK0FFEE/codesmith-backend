@@ -2,24 +2,28 @@ from beanie import Document
 from pydantic import BaseModel
 from enum import Enum
 from typing import List
+from bson import ObjectId
 
 class ProjectType(str, Enum):
-    frontend = "frontend"
-    backend = "backend"
-    fullstack = "fullstack"
-    cli = "cli"
-    mobile = "mobile"
-    ai_ml = "ai_ml"
-    gamedev = "gamedev"
-    devops = "devops"
+    Frontend = "frontend"
+    Backend = "backend"
+    FullStack = "fullstack"
+    CLI = "cli"
+    Mobile = "mobile"
+    AiMl = "ai_ml"
+    GameDev = "gamedev"
+    DevOps = "devops"
+    General = "general"
 
 class General(Document):
+    id: str
     projectName: str
     projectAuthor: str
     projectAudience: str
     projectPlan: str
     projectTags: List[str]
     projectType: ProjectType
+    projectFileId: int
 
     class Settings:
         collection = "general_projects"

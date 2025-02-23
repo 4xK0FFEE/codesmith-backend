@@ -1,4 +1,4 @@
-from src.models.templates.General import General
+from src.models.templates.General import General, ProjectType
 from src.models.templates.Frontend import Frontend
 from src.models.templates.Backend import Backend
 from src.models.templates.FullStack import FullStack
@@ -18,5 +18,6 @@ __all__ = [
     "AiMl",
     "GameDev",
     "DevOps",
+    "ProjectType"
 ]
 

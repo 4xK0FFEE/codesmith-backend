@@ -1,39 +1,44 @@
 from fastapi import APIRouter, HTTPException, Query
+from fastapi.responses import JSONResponse
 from typing import List, Optional, Set
-from src.handlers.templates import TemplateHandler
-from src.models.templates import Template, TemplateList, TemplateCreate, ProjectType
+from src.handlers import TemplateHandler
+from src.models import ProjectType
+from pydantic import BaseModel
+
+class Template(BaseModel):
+    id: str
+    name: str
+    description: str
+    project_type: ProjectType
+    tags: Set[str]
+
+class TemplateDownload(Template):
+    download_url: str 
 
 router = APIRouter(prefix="/templates", tags=["Template Router"])
-template_handler = TemplateHandler()
 
-@router.get("/all", response_model=List[TemplateList])
+
+@router.get("/all", response_model=List[Template])
 async def list_templates(
     project_type: Optional[ProjectType] = None,
     tags: Optional[str] = Query(None, description="Comma-separated list of tags to filter by")
 ):
-    """
-    Get all templates with optional filtering by project type and tags.
-    Returns a list of templates with basic information (id, name, description, project_type, tags).
-    """
     tag_set = set(tags.split(",")) if tags else None
-    return template_handler.get_all_templates(project_type, tag_set)
+    templates = await TemplateHandler.get_all_templates(project_type, tag_set)
+    return [Template(**t) for t in templates]
 
 @router.get("/tags")
-async def get_all_tags():
-    """
-    Get all available tags across all templates.
-    """
-    return {"tags": sorted(list(template_handler.get_all_tags()))}
+async def get_all_tags() -> JSONResponse:
+    return JSONResponse({"tags": sorted(list(await TemplateHandler.get_all_tags()))})
 
-@router.get("/{template_id}", response_model=Template)
-async def get_template(template_id: int):
-    """
-    Get a specific template by ID.
-    Returns complete template information including the download URL and tags.
-    """
-    template = template_handler.get_template_by_id(template_id)
+@router.get("/{template_id}", response_model=TemplateDownload)
+async def get_template(template_id: str):
+
+    template = await TemplateHandler.get_template_by_id(template_id)
     if not template:
         raise HTTPException(status_code=404, detail="Template not found")
-    return template
+    template["download_url"] = f"/files/get/{template['_id']}"
+    template_ret = TemplateDownload(**template)
+    return template_ret
 
 __all__ = [ "router" ]

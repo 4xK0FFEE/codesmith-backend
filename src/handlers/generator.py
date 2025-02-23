@@ -169,7 +169,13 @@ class GeneratorHandler:
                 ],
                 "name": "Name for db"
             }}'''
-        # Intergation AI
+        payload = {
+            "model": "deepseek-coder:6.7b",
+            "prompt": specific_prompt,
+            "stream": False
+        }
+        resp = requests.post("http://localhost:11434/api/generate",)
+        ai_response = resp.json()["response"]
         return ai_response
 
     @staticmethod

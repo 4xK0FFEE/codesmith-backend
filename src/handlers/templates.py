@@ -45,13 +45,14 @@ class TemplateHandler:
 
 
     # Private functions 
-    async def _fetch_templates(model: Document) -> List[Dict]:
+    async def _fetch_templates(model: General) -> List[Dict]:
         templates = await model.all().to_list()
+        print(templates,flush=True)
         return [ await TemplateHandler._format_template(template) for template in templates ]
 
     async def _format_template(template) -> Dict:
         return {
-            "id": template.id,
+            "id": str(template.id),
             "name": template.projectName,
             "description": template.projectPlan,
             "project_type": template.projectType.value,

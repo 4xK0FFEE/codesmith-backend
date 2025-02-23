@@ -37,9 +37,14 @@ async def get_template(template_id: str):
     template = await TemplateHandler.get_template_by_id(template_id)
     if not template:
         raise HTTPException(status_code=404, detail="Template not found")
-    print(template,flush=True)
-    template["download_url"] = f"/files/download/{template.projectFileId}"
-    template_ret = TemplateDownload(**template)
-    return template_ret
+    template_dict = template.model_dump()
+    return TemplateDownload(
+        id=str(template_dict["id"]),
+        name=template_dict["projectName"],
+        description=template_dict["projectPlan"],
+        project_type=template_dict["projectType"],
+        tags=set(template_dict["projectTags"]), 
+        download_url=f"/files/download/{template_dict['projectFileId']}"
+    )
 
 __all__ = [ "router" ]

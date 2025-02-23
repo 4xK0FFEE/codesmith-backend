@@ -6,5 +6,5 @@ from src.config import Config as config
 async def init_db():
     client = AsyncIOMotorClient(config.database)
     config.database_client = client
-    await init_beanie(database = client.codesmith, document_models=[ models.General ]
+    await init_beanie(database = client.test, document_models=[ models.General ]
     )

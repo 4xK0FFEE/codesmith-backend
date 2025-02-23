@@ -7,7 +7,6 @@ class General(BaseModel):
     projectAuthor: str
     projectAudience: str
     projectPlan: str
-    projectTags: List[str]
     projectType: ProjectType
 
 __all__ = [ "General" ]

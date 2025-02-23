@@ -8,7 +8,7 @@ import pymongo
 
 router = APIRouter(prefix = "/api", tags=["Base Router"])
 
-@router.get("/healthcheck")
+@router.get("/healthcheck", tags = ["Base Router"])
 async def health_check() -> JSONResponse:
     try:
         await config.database_client.db_name.command("ping")

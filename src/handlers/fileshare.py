@@ -1,5 +1,6 @@
 class FileShareHandler:
+    @staticmethod
     async def download_file(id: int):
-        return 'send the file'
+        return { "path": f"/files/{id}.zip", "media_type": "application/octet-stream", "filename": "Project.zip"}
 
 

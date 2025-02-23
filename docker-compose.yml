@@ -11,6 +11,8 @@ services:
       context: ./ 
     container_name: codesmith-backend
     hostname: backend.codesmith 
+    volumes:
+      - ./files:/files
     depends_on:
       - database
     environment:
@@ -20,3 +22,4 @@ services:
 
 volumes:
   mongo_data:
+    driver: local

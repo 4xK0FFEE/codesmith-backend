@@ -1,4 +1,4 @@
-from src.models.templates.General import General
+from src.models.pydantic import General
 
 class DevOps(General):
     backup: bool
@@ -12,7 +12,5 @@ class DevOps(General):
     security: str
     serviceDiscovery: str
 
-    class Settings:
-        collection = "devops_projects"
-
 __all__ = [ "DevOps" ]
+

@@ -1,4 +1,4 @@
-from src.models.templates.General import General
+from src.models.pydantic import General
 
 class Mobile(General):
     authentication: str
@@ -6,8 +6,5 @@ class Mobile(General):
     navigation: str
     stateManagement: str
     storage: str
-
-    class Settings:
-        collection = "mobile_projects"
 
 __all__ = [ "Mobile" ]

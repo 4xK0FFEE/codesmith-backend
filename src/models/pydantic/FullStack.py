@@ -1,4 +1,4 @@
-from src.models.templates.General import General
+from src.models.pydantic import General
 
 class FullStack(General):
     authentication: str
@@ -7,8 +7,5 @@ class FullStack(General):
     deployment: str
     frontendFramework: str
     orm: str
-
-    class Settings:
-        collection = "fullstack_projects"
 
 __all__ = [ "FullStack" ]

@@ -1,4 +1,4 @@
-from src.models.templates.General import General
+from src.models.pydantic import General
 
 class Backend(General):
     apiSpec: str
@@ -12,8 +12,5 @@ class Backend(General):
     monitoring: str
     orm: str
     testing: str
-
-    class Settings:
-        collection = "backend_projects"
 
 __all__ = [ "Backend" ]

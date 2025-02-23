@@ -1,4 +1,4 @@
-from src.models.templates.General import General
+from src.models.pydantic import General
 
 class GameDev(General):
     assetManagement: bool
@@ -8,8 +8,5 @@ class GameDev(General):
     multiplayer: bool
     physics: str
     saveSystem: bool
-
-    class Settings:
-        collection = "gamedev_projects"
 
 __all__ = [ "GameDev" ]

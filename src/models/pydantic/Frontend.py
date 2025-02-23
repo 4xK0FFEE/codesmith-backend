@@ -1,4 +1,4 @@
-from src.models.templates.General import General
+from src.models.pydantic import General
 
 class Frontend(General):
     analytics: str
@@ -15,8 +15,5 @@ class Frontend(General):
     uiLibrary: str
     pwa: bool
     i18n: bool
-
-    class Settings:
-        collection = "frontend_projects"
 
 __all__ = [ "Frontend" ]

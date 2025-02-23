@@ -1,4 +1,4 @@
-from src.models.templates.General import General
+from src.models.pydantic import General
 
 class AiMl(General):
     dataProcessing: str
@@ -8,8 +8,5 @@ class AiMl(General):
     gpuSupport: bool
     modelTracking: str
     visualization: str
-
-    class Settings:
-        collection = "ai_ml_projects"
 
 __all__ = [ "AiMl" ]

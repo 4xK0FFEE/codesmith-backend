@@ -1,4 +1,4 @@
-from src.models.templates import General, Frontend, Backend, FullStack, CLI, Mobile, AiMl, GameDev, DevOps, ProjectType
+from src.models import General, ProjectType
 from beanie import Document
 from typing import List, Dict, Set, Optional
 from bson import ObjectId
@@ -24,15 +24,6 @@ class TemplateHandler:
         
         templates = []
         templates.extend(await TemplateHandler._fetch_templates(General))
-        templates.extend(await TemplateHandler._fetch_templates(Frontend))
-        templates.extend(await TemplateHandler._fetch_templates(Backend))
-        templates.extend(await TemplateHandler._fetch_templates(FullStack))
-        templates.extend(await TemplateHandler._fetch_templates(CLI))
-        templates.extend(await TemplateHandler._fetch_templates(Mobile))
-        templates.extend(await TemplateHandler._fetch_templates(AiMl))
-        templates.extend(await TemplateHandler._fetch_templates(GameDev))
-        templates.extend(await TemplateHandler._fetch_templates(DevOps))
-
         if project_type:
             templates = [t for t in templates if t["project_type"] == project_type.value]
 
@@ -46,11 +37,9 @@ class TemplateHandler:
 
     @staticmethod
     async def get_template_by_id(template_id: str) -> Document | None:
-        collections = [General, Frontend, Backend, FullStack, CLI, Mobile, AiMl, GameDev, DevOps]
-        for collection in collections:
-            template = await collection.get(template_id)
-            if template:
-                return template
+        template = await General.get(template_id)
+        if template:
+            return template
 
         return None
 

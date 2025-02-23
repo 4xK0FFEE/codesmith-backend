@@ -10,5 +10,6 @@ __all__ = [
     "AiMl",
     "GameDev",
     "DevOps",
+    "ProjectType"
 ]
 

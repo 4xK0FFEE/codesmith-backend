@@ -1,6 +1,5 @@
 class FileShareHandler:
-    async def download_file():
+    async def download_file(id: int):
         return 'send the file'
 
-    async def upload_file():
-        return 'add a new file'
+

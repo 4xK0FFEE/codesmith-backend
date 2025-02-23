@@ -9,11 +9,11 @@ import os
 app = FastAPI()
 app.include_router(Router)
 
-config.database = os.getenv("MONGO_URI")
+#config.database = os.getenv("MONGO_URI")
 
-@app.on_event("startup")
-async def startup():
-    await database.init_db()
+#@app.on_event("startup")
+#async def startup():
+#    await database.init_db()
 
 @app.on_event("shutdown")
 def shutdown():

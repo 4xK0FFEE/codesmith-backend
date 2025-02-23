@@ -12,6 +12,8 @@ class Template(BaseModel):
     project_type: ProjectType
     tags: Set[str]
 
+router = APIRouter(prefix = "/templates", tags = ["Templates"])
+
 class TemplateDownload(Template):
     download_url: str 
 
